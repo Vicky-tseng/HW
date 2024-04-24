@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  h2::before {
+    /* 插進去的東西是inline */
+    content: "飯前吃";
+  }
+
+  h2::after {
+    /* 插進去的東西是inline */
+    content: "飯後吃";
+  }
+</style>
+
+<body>
+  AAAA<h2> 水果 </h2>BBBB
+</body>
+
+</html>

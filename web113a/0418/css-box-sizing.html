@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      width: 600px;
+      /* font-size: 0px; 把間隙消失 */
+      font-size: 0px;
+    }
+
+    .box {
+      font-size: 16px;
+      box-sizing: border-box;
+      height: 200px;
+      width: 200px;
+      background-color: #CCC;
+      /* block有自己的寬和高，inline可以做水平排列，inline會有間隙 */
+      /* display: inline; */
+      display: inline-block;
+      /* margin-left: -4px; */
+      /* overflow:把越位的東西隱藏, hidden和auto都可以用 */
+      overflow: hidden;
+      /* border: 10px solid #000;
+      padding: 30px; */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="box">box1</div>
+    <div class="box"></div>
+    <div class="box">box3</div>
+  </div>
+</body>
+
+</html>

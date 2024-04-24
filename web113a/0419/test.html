@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .container {
+      width: 700px;
+      height: 400px;
+      background-color: #aaa;
+      /* 水平置中 */
+      text-align: left;
+      /* 垂直置中1，只能用在單行 */
+      /* line-height: 300px; */
+      /* 垂直置中2，適用多行文字 */
+      display: table;
+    }
+
+    .picture {
+
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    .content {
+      display: table-cell;
+      vertical-align: middle;
+      padding-left: 10px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <form action="http://vm.test:6080/login.php" method="get">
+    <div class="container">
+      <div class="picture">
+        <img src="https://via.placeholder.com/200x200" alt="">
+      </div>
+      <div class="content">
+        <h2>title</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Doloribus, quas maxime facilis doloremque atque ipsa
+          consequuntur alias at eius quis laborum tempore reiciendis
+          voluptas earum voluptatibus dolore laboriosam culpa rem!</p>
+      </div>
+    </div>
+  </form>
+</body>
+
+</html>
