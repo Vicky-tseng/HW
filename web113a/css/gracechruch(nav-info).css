@@ -1,0 +1,151 @@
+* {
+  box-sizing: border-box;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+html,
+body,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li,
+img {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: 100%;
+}
+:root {
+  --primaryColor: #ff6060;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "微軟正黑體", "標楷體";
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li,
+img {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+img {
+  width: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.fixed-width {
+  width: 1200px;
+  margin: auto;
+}
+
+.col-1 {
+  width: calc(100% / 12 * 1);
+}
+.col-2 {
+  width: calc(100% / 12 * 2);
+}
+.col-3 {
+  width: calc(100% / 12 * 3);
+}
+.col-4 {
+  width: calc(100% / 12 * 4);
+}
+.col-5 {
+  width: calc(100% / 12 * 5);
+}
+.col-6 {
+  width: calc(100% / 12 * 6);
+}
+.col-7 {
+  width: calc(100% / 12 * 7);
+}
+.col-8 {
+  width: calc(100% / 12 * 8);
+}
+.col-9 {
+  width: calc(100% / 12 * 9);
+}
+.col-10 {
+  width: calc(100% / 12 * 10);
+}
+.col-11 {
+  width: calc(100% / 12 * 11);
+}
+.col-12 {
+  width: calc(100% / 12 * 12);
+}
+
+.nopa {
+  padding: 0 !important;
+}
+
+[class*="col"] {
+  float: left;
+  padding: 10px;
+}
+
+.noma {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.no {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+div {
+  color: var(--primaryColor);
+}
+
+/*nav info*/
+#nav-info .addr {
+  float: left;
+}
+#nav-info .register {
+  float: right;
+}
+#nav-info .register li {
+  list-style: none;
+}
+
+#nav-info .donate {
+  float: right;
+}

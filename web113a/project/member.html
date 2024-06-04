@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sui Bian</title>
+  <style>
+    /* 新增的 CSS */
+    .member-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .member {
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 5px;
+      font-size: 18px;
+      /* 調整文字大小 */
+    }
+
+    .member input[type="text"],
+    .member input[type="password"],
+    .member input[type="button"] {
+      margin-bottom: 10px;
+      display: block;
+      /* 將 input 元素改為區塊元素 */
+    }
+
+    .member li:last-child input[type="button"] {
+      margin-bottom: 0;
+      /* 移除最後一個 input 元素的底部間距 */
+    }
+
+    .navbar {
+      background-color: #ff9800;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar-logo {
+      height: 40px;
+    }
+
+    .navbar-menu {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-menu li {
+      margin-left: 20px;
+    }
+
+    .navbar-menu a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="main.html"><img src="logo.png" alt="Logo" class="navbar-logo"></a>
+
+      <ul class="navbar-menu">
+        <li><a href="member.html">會員</a></li>
+        <li><a href="cart.html">購物車</a></li>
+        <li><a href="checkout.html">訂單</a></li>
+        <li><a href="#contact">關於我們</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 將 member 區塊移到導覽列底下 -->
+  <div class="member-container">
+    <div class="member">
+      會員帳號<input type="text" id="member-account" placeholder="會員帳號">
+      會員密碼<input type="password" id="member-password" placeholder="會員密碼">
+      <small>登入即註冊</small>
+      <input type="button" value="登入" id="login-button">
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

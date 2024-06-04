@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sui Bian</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+
+    .header {
+      background-color: #d9534f;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+
+    .navbar {
+      background-color: #ff9800;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar-logo {
+      height: 40px;
+    }
+
+    .navbar-menu {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-menu li {
+      margin-left: 20px;
+    }
+
+    .navbar-menu a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+
+
+
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .store-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .store-info h1 {
+      margin: 0;
+    }
+
+    .store-info div {
+      text-align: right;
+    }
+
+    .menu-section {
+      margin-bottom: 40px;
+    }
+
+    .menu-section h2 {
+      margin-bottom: 20px;
+    }
+
+    .menu-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+    }
+
+    .menu-row {
+      width: calc(33.333% - 20px);
+    }
+
+    .menu-item {
+      background-color: #f1f1f1;
+      padding: 10px;
+      text-align: center;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu-item img {
+      max-width: 100%;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .menu-item img:hover {
+      transform: scale(1.1);
+    }
+
+    .button {
+      background-color: #d9534f;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    /* Lightbox styles */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox-content {
+      position: relative;
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      width: 90%;
+      max-width: 400px;
+    }
+
+    .lightbox img {
+      max-width: 100%;
+      border-radius: 5px;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: #000;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .quantityInput {
+      width: 50px;
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="main.html"><img src="logo.png" alt="Logo" class="navbar-logo"></a>
+      <ul class="navbar-menu">
+        <li><a href="member.html">會員</a></li>
+        <li><a href="cart.html">購物車</a></li>
+        <li><a href="checkout.html">訂單</a></li>
+        <li><a href="#contact">關於我們</a></li>
+      </ul>
+
+      <button class="navbar-toggle" id="navbar-toggle">&#9776;</button>
+    </div>
+  </nav>
+
+
+  <div class="container">
+    <div class="menu-section">
+      <h2>便當</h2>
+      <div class="menu-items">
+        <div class="menu-item">
+          <img src="image1.jpg" alt="五福炸雞腿" class="productImage" data-id="1" data-name="五福炸雞腿" data-price="129">
+          <h3>日式便當</h3>
+          <p>$129</p>
+        </div>
+        <div class="menu-item">
+          <img src="image2.jpg" alt="升官炸排骨" class="productImage" data-id="2" data-name="升官炸排骨" data-price="115">
+          <h3>照燒雞腿</h3>
+          <p>$115</p>
+        </div>
+        <div class="menu-item">
+          <img src="image3.jpg" alt="燒肉牛五花" class="productImage" data-id="3" data-name="燒肉牛五花" data-price="129">
+          <h3>燒肉牛五花</h3>
+          <p>$129</p>
+        </div>
+        <div class="menu-item">
+          <img src="image4.jpg" alt="香酥炸雞排" class="productImage" data-id="4" data-name="香酥炸雞排" data-price="99">
+          <h3>香酥炸雞排</h3>
+          <p>$99</p>
+        </div>
+        <div class="menu-item">
+          <img src="image5.jpg" alt="鹽酥雞腿" class="productImage" data-id="5" data-name="鹽酥雞腿" data-price="109">
+          <h3>鹽酥雞腿</h3>
+          <p>$109</p>
+        </div>
+        <div class="menu-item">
+          <img src="image6.jpg" alt="蜜汁烤雞翅" class="productImage" data-id="6" data-name="蜜汁烤雞翅" data-price="119">
+          <h3>蜜汁烤雞翅</h3>
+          <p>$119</p>
+        </div>
+        <div class="menu-item">
+          <img src="image7.jpg" alt="香蒜炸雞塊" class="productImage" data-id="7" data-name="香蒜炸雞塊" data-price="105">
+          <h3>香蒜炸雞塊</h3>
+          <p>$105</p>
+        </div>
+        <div class="menu-item">
+          <img src="image8.jpg" alt="炸豬排" class="productImage" data-id="8" data-name="炸豬排" data-price="119">
+          <h3>炸豬排</h3>
+          <p>$119</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button id="viewCartButton">View Cart</button>
+
+  <!-- Lightbox HTML -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+      <span class="close" id="closeLightbox">&times;</span>
+      <img id="lightboxImage" src="" alt="Product Image">
+      <h3 id="lightboxTitle"></h3>
+      <p id="lightboxPrice"></p>
+      <input type="number" min="1" value="1" class="quantityInput" id="lightboxQuantity">
+      <button class="button" id="addToCartButton">加入購物車</button>
+    </div>
+  </div>
+
+  <script>
+    let currentProduct = null;
+
+    document.querySelectorAll('.productImage').forEach(image => {
+      image.addEventListener('click', function (event) {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightboxImage');
+        const lightboxTitle = document.getElementById('lightboxTitle');
+        const lightboxPrice = document.getElementById('lightboxPrice');
+        const lightboxQuantity = document.getElementById('lightboxQuantity');
+
+        lightboxImage.src = event.target.src;
+        lightboxTitle.textContent = event.target.getAttribute('data-name');
+        lightboxPrice.textContent = `$${event.target.getAttribute('data-price')}`;
+        lightboxQuantity.value = 1;
+
+        currentProduct = {
+          id: event.target.getAttribute('data-id'),
+          name: event.target.getAttribute('data-name'),
+          price: parseFloat(event.target.getAttribute('data-price'))
+        };
+
+        lightbox.style.display = 'flex';
+      });
+    });
+
+    document.getElementById('closeLightbox').addEventListener('click', function () {
+      document.getElementById('lightbox').style.display = 'none';
+    });
+
+    document.getElementById('addToCartButton').addEventListener('click', function () {
+      const quantity = parseInt(document.getElementById('lightboxQuantity').value);
+
+      const product = {
+        ...currentProduct,
+        quantity
+      };
+
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const existingProductIndex = cart.findIndex(item => item.id === product.id);
+
+      if (existingProductIndex !== -1) {
+        cart[existingProductIndex].quantity += quantity;
+      } else {
+        cart.push(product);
+      }
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+
+      alert(`${product.name} 加入購物車!`);
+      document.getElementById('lightbox').style.display = 'none';
+    });
+
+    function viewCart() {
+      window.location.href = 'cart.html';
+    }
+
+    document.getElementById('viewCartButton').addEventListener('click', viewCart);
+  </script>
+</body>
+
+</html>

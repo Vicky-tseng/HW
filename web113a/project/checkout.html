@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sui Bian - 訂單明細</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .navbar {
+      background-color: #f5a623;
+      padding: 10px;
+    }
+
+    .navbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar-logo {
+      height: 40px;
+    }
+
+    .navbar-menu {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 15px;
+    }
+
+    .navbar-menu li {
+      display: inline;
+    }
+
+    .navbar-menu a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    .order-summary {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background: white;
+    }
+
+    .order-summary h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .total {
+      text-align: right;
+      font-size: 18px;
+      margin-top: 20px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .buttons button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .buttons button:nth-child(1) {
+      background-color: #f5a623;
+      color: #fff;
+    }
+
+    .buttons button:nth-child(2) {
+      background-color: #ddd;
+      color: #333;
+    }
+
+    .order-summary-total {
+      width: 100%;
+      text-align: right;
+      padding-top: 20px;
+    }
+
+    .warning-text {
+      color: red;
+    }
+
+    .total-amount {
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+
+    .checkout-button,
+    .go-back-button {
+      background-color: #00cc66;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .checkout-button:hover,
+    .go-back-button:hover {
+      background-color: #00994d;
+    }
+
+    .go-back-button {
+      background-color: #ccc;
+      color: #333;
+      margin-left: 10px;
+    }
+
+    .go-back-button:hover {
+      background-color: #bbb;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="main.html"><img src="logo.png" alt="Logo" class="navbar-logo"></a>
+      <ul class="navbar-menu">
+        <li><a href="member.html">會員</a></li>
+        <li><a href="cart.html">購物車</a></li>
+        <li><a href="checkout.html">訂單</a></li>
+        <li><a href="#contact">關於我們</a></li>
+      </ul>
+      <button class="navbar-toggle" id="navbar-toggle">&#9776;</button>
+    </div>
+  </nav>
+
+  <div class="order-summary">
+    <h1>訂單明細</h1>
+    <div id="orderItemsContainer"></div>
+    <div class="order-summary-total">
+      <p id="totalAmountSummary" class="total-amount">合計金額: 0台幣</p>
+      <button class="checkout-button" id="placeOrderButton">結帳</button>
+      <button id="goBackToCartButton" class="go-back-button">返回購物車</button>
+    </div>
+  </div>
+
+  <script>
+    function loadOrderSummary() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const orderItemsContainer = document.getElementById('orderItemsContainer');
+      let subtotal = 0;
+
+      orderItemsContainer.innerHTML = '';
+      cart.forEach(item => {
+        const listItem = document.createElement('div');
+        listItem.classList.add('cart-item');
+
+        const subtotal = item.price * item.quantity;
+
+        listItem.innerHTML = `
+          <span>${item.name}</span>
+          <span>$${item.price}</span>
+          <span>${item.quantity}</span>
+          <span>$${subtotal}</span>
+        `;
+
+        orderItemsContainer.appendChild(listItem);
+
+        subtotal += item.price * item.quantity;
+      });
+
+      document.getElementById('subtotal').textContent = `商品合計金額: ${subtotal}台幣`;
+      document.getElementById('totalAmountSummary').textContent = `合計金額: ${subtotal}台幣`;
+    }
+
+    function goBackToCart() {
+      window.location.href = 'cart.html';
+    }
+
+    function placeOrder() {
+      alert('訂單已成功提交！');
+      localStorage.removeItem('cart');
+      window.location.href = 'main.html';
+    }
+
+    document.getElementById('goBackToCartButton').addEventListener('click', goBackToCart);
+    document.getElementById('placeOrderButton').addEventListener('click', placeOrder);
+    window.onload = loadOrderSummary;
+  </script>
+</body>
+
+</html>
